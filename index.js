@@ -29,14 +29,14 @@ const THUMB_IMAGE = require('./assets/thumb.png');
 
 // UI states
 
-var CONTROL_STATES = {
+const CONTROL_STATES = {
   SHOWN: 'SHOWN',
   SHOWING: 'SHOWING',
   HIDDEN: 'HIDDEN',
   HIDING: 'HIDDING',
 };
 
-var PLAYBACK_STATES = {
+const PLAYBACK_STATES = {
   LOADING: 'LOADING',
   PLAYING: 'PLAYING',
   PAUSED: 'PAUSED',
@@ -45,7 +45,7 @@ var PLAYBACK_STATES = {
   ENDED: 'ENDED',
 };
 
-var SEEK_STATES = {
+const SEEK_STATES = {
   NOT_SEEKING: 'NOT_SEEKING',
   SEEKING: 'SEEKING',
   SEEKED: 'SEEKED',
@@ -94,6 +94,7 @@ export default class VideoPlayer extends React.Component {
     // Icons
     playIcon: PropTypes.func,
     pauseIcon: PropTypes.func,
+    replayIcon: PropTypes.func,
     spinner: PropTypes.func,
     fullscreenEnterIcon: PropTypes.func,
     fullscreenExitIcon: PropTypes.func,
