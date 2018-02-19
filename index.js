@@ -549,6 +549,7 @@ export default class VideoPlayer extends React.Component {
 
     // Do not let the user override `ref`, `callback`, and `style`
     const {
+      ref,
       callback,
       style,
       source,
