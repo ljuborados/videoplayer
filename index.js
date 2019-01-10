@@ -465,7 +465,10 @@ export default class VideoPlayer extends React.Component {
   }
 
   _togglePlay() {
-    if (this.props.locked) {
+    if (
+      this.props.locked &&
+      this.state.playbackState != PLAYBACK_STATES.PLAYING
+    ) {
       if (this.props.onLockedPlayCallback) this.props.onLockedPlayCallback();
       else console.warn('Locked props passed withour onLockedPlayCallback');
       return;
