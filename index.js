@@ -123,6 +123,12 @@ export default class VideoPlayer extends React.Component {
     switchToPortrait: PropTypes.func,
 
     showControlsOnLoad: PropTypes.bool,
+
+    // Is the current video unlocked
+    locked: PropTypes.bool,
+
+    // Executed when props.locked is true and play button pressed
+    onLockedPlayCallback: PropTypes.func,
   };
 
   static defaultProps = {
@@ -459,6 +465,11 @@ export default class VideoPlayer extends React.Component {
   }
 
   _togglePlay() {
+    console.log('toggled play!');
+    if (this.props.locked) {
+      if (this.props.onLockedPlayCallback) this.props.onLockedPlayCallback();
+      else console.warn('Locked props passed withour onLockedPlayCallback');
+    }
     this.state.playbackState == PLAYBACK_STATES.PLAYING
       ? this._playbackInstance.setStatusAsync({ shouldPlay: false })
       : this._playbackInstance.setStatusAsync({ shouldPlay: true });
