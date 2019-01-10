@@ -469,6 +469,7 @@ export default class VideoPlayer extends React.Component {
     if (this.props.locked) {
       if (this.props.onLockedPlayCallback) this.props.onLockedPlayCallback();
       else console.warn('Locked props passed withour onLockedPlayCallback');
+      return;
     }
     this.state.playbackState == PLAYBACK_STATES.PLAYING
       ? this._playbackInstance.setStatusAsync({ shouldPlay: false })
